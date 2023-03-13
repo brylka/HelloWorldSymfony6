@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Kalkulator{% endblock %}
+
+{% block body %}
+<div>
+    <h1>Kalkulator</h1>
+    <p>
+        {{ a }} + {{ b }} = {{ a + b }}
+    </p>
+    <p>
+        {{ a }} - {{ b }} = {{ a - b }}
+    </p>
+    <p>
+        {{ a }} * {{ b }} = {{ a * b }}
+    </p>
+    {% if b != 0 %}
+        <p>
+            {{ a }} / {{ b }} = {{ a / b }}
+        </p>
+    {% else %}
+        <p>
+            Nie można dzielić przez zero.
+        </p>
+    {% endif %}
+</div>
+{% endblock %}
