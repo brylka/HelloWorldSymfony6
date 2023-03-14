@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ArrayView{% endblock %}
+
+{% block body %}
+    <table>
+        <thead>
+        <tr>
+            <th><a href="{{ path('app_array', {'sortBy': 'name', 'sortOrder': (sortBy == 'name' and sortOrder == 'asc') ? 'desc' : 'asc'}) }}">Name</a>
+                {% if sortBy == 'name' %}
+                    {% if sortOrder == 'asc' %}
+                        <span>↑</span>
+                    {% else %}
+                        <span>↓</span>
+                    {% endif %}
+                {% endif %}
+            <th><a href="{{ path('app_array', {'sortBy': 'surname', 'sortOrder': (sortBy == 'surname' and sortOrder == 'asc') ? 'desc' : 'asc'}) }}">Surname</a>
+                {% if sortBy == 'surname' %}
+                    {% if sortOrder == 'asc' %}
+                        <span>↑</span>
+                    {% else %}
+                        <span>↓</span>
+                    {% endif %}
+                {% endif %}
+            <th><a href="{{ path('app_array', {'sortBy': 'age', 'sortOrder': (sortBy == 'age' and sortOrder == 'asc') ? 'desc' : 'asc'}) }}">Age</a>
+                {% if sortBy == 'age' %}
+                    {% if sortOrder == 'asc' %}
+                        <span>↑</span>
+                    {% else %}
+                        <span>↓</span>
+                    {% endif %}
+                {% endif %}
+            <th><a href="{{ path('app_array', {'sortBy': 'email', 'sortOrder': (sortBy == 'email' and sortOrder == 'asc') ? 'desc' : 'asc'}) }}">Email</a>
+                {% if sortBy == 'email' %}
+                    {% if sortOrder == 'asc' %}
+                        <span>↑</span>
+                    {% else %}
+                        <span>↓</span>
+                    {% endif %}
+                {% endif %}
+        </thead>
+        <tbody>
+        {% for record in data %}
+            <tr>
+                <td>{{ record.name }}
+                <td>{{ record.surname }}
+                <td>{{ record.age }}
+                <td>{{ record.email }}
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
